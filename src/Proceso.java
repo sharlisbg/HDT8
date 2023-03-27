@@ -3,7 +3,7 @@
  * @author Leonel Contreras 18797
  * @version 1.0
  */
-public class Proceso implements Comparable<Proceso>{
+public class Proceso {
 
     // atributos
     private String nombre;
@@ -65,7 +65,7 @@ public class Proceso implements Comparable<Proceso>{
         return this.priority;
     }
 
-    @Override
+    /*@Override
     public int compareTo(Proceso o) {
        if (this.priority == o.getPriority()) {
         return 0;
@@ -74,5 +74,5 @@ public class Proceso implements Comparable<Proceso>{
        } else {
         return -1;
        }
-    }
+    }*/
 }
