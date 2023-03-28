@@ -66,7 +66,7 @@ public class Proceso {
     }
 
     public String toString() {
-        return "Nombre del proceso:" + nombre + " Nombre del usuario: " + nombreusuario + " Valor nice: " + valornice + " Priority: " + priority;
+        return "Nombre proceso: " + nombre + " Nombre usuario: " + nombreusuario + " Valor nice: " + valornice + " Priority: " + priority;
     }
 
     /*@Override
