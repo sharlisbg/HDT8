@@ -16,6 +16,9 @@ public class Principal {
         PriorityQueue<Proceso> priorityqueue = new PriorityQueue<Proceso>(new ProcesoComparator());
         ArrayList<String> lectura = new ArrayList<String>();
 
+        // creamos un objeto de tipo HeapUsingIterativeBinaryTree
+        HeapUsingIterativeBinaryTree<Integer, Proceso> heap = new HeapUsingIterativeBinaryTree<Integer, Proceso>(new ComparadorPrioridades<Integer>());
+
         // leemos el documento procesos.txt
         try {
             BufferedReader reader = new BufferedReader(new FileReader("procesos.txt"));
@@ -44,7 +47,19 @@ public class Principal {
             priorityqueue.add(proceso);
         }
 
-        //TO-DO agregar el vector heap o heap con binary search
+        //agregamos la pareja prioridad, valor al heap
+        // recorremos cada string de la lista de procesos
+        for (String string : lectura) {
+            String[] datos = string.split(",");
+            // asignamos los valores que vamos a pasar como parametros al constructor de la clase proceso
+            String nombreproceso = datos[0];
+            String nombreusuario = datos[1];
+            int valornice = Integer.parseInt(datos[2]);
+            // creamos una instancia de la clase proceso
+            Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
+            int prioridad = proceso.getPriority();
+            heap.Insert(prioridad, proceso);
+        }
 
         Scanner numero = new Scanner(System.in);
 
@@ -59,7 +74,9 @@ public class Principal {
                 System.out.println(priorityqueue.poll().toString());
             }
         } else {
-            // aqui va lo de vector o heap
+            while (!heap.isEmpty()) {
+                System.out.println(heap.remove().toString());
+            }
         }
 
         
