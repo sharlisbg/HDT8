@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 /**
  * Principal es la clase que interactua con el usuario. Tiene el metodo main
@@ -9,6 +10,7 @@ import java.util.PriorityQueue;
  * @version 1.0
  */
 public class Principal {
+    
     public static void main(String[] args) {
         //Creamos un objeto de tipo PriorityQueue
         PriorityQueue<Proceso> priorityqueue = new PriorityQueue<Proceso>(new ProcesoComparator());
@@ -40,6 +42,24 @@ public class Principal {
             Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
             // agregamos la instancia de proceso al priority queue
             priorityqueue.add(proceso);
+        }
+
+        //TO-DO agregar el vector heap o heap con binary search
+
+        Scanner numero = new Scanner(System.in);
+
+        System.out.println("Ingrese la opcion que desea implementar");
+        System.out.println("1. Priority Queue");
+        System.out.println("2. Aqui va vector heap o BS");
+        int opcionimplementar = numero.nextInt();
+
+        if (opcionimplementar == 1) {
+            System.out.println("El CPU atendera los procesos en el siguiente orden:");
+            while (!priorityqueue.isEmpty()) {
+                System.out.println(priorityqueue.poll().toString());
+            }
+        } else {
+            // aqui va lo de vector o heap
         }
 
         

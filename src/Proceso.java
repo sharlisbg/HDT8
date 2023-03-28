@@ -65,6 +65,10 @@ public class Proceso {
         return this.priority;
     }
 
+    public String toString() {
+        return "Nombre del proceso:" + nombre + " Nombre del usuario: " + nombreusuario + " Valor nice: " + valornice + " Priority: " + priority;
+    }
+
     /*@Override
     public int compareTo(Proceso o) {
        if (this.priority == o.getPriority()) {
