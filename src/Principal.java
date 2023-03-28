@@ -40,7 +40,7 @@ public class Principal {
             String nombreproceso = datos[0];
             String nombreusuario = datos[1];
             int valornice = Integer.parseInt(datos[2]);
-            // System.out.println(valornice);
+            //System.out.println(valornice);
             // creamos una instancia de la clase proceso 
             Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
             // agregamos la instancia de proceso al priority queue
@@ -49,23 +49,27 @@ public class Principal {
 
         //agregamos la pareja prioridad, valor al heap
         // recorremos cada string de la lista de procesos
+        
         for (String string : lectura) {
+            //System.out.println(string);
             String[] datos = string.split(",");
-            // asignamos los valores que vamos a pasar como parametros al constructor de la clase proceso
             String nombreproceso = datos[0];
             String nombreusuario = datos[1];
             int valornice = Integer.parseInt(datos[2]);
-            // creamos una instancia de la clase proceso
+            //System.out.println(nombreproceso + nombreusuario+valornice);
+            //System.out.println(valornice);
             Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
             int prioridad = proceso.getPriority();
             heap.Insert(prioridad, proceso);
+            //System.out.println(heap.remove().toString());
+            
         }
 
         Scanner numero = new Scanner(System.in);
 
         System.out.println("Ingrese la opcion que desea implementar");
         System.out.println("1. Priority Queue");
-        System.out.println("2. Aqui va vector heap o BS");
+        System.out.println("2. Heap using Iterative Binary Tree");
         int opcionimplementar = numero.nextInt();
 
         if (opcionimplementar == 1) {
@@ -74,9 +78,14 @@ public class Principal {
                 System.out.println(priorityqueue.poll().toString());
             }
         } else {
-            while (!heap.isEmpty()) {
-                System.out.println(heap.remove().toString());
+            for (int i = 0; i < heap.count(); i++) {
+                Proceso temp = heap.remove();
+                System.out.println(temp.toString());
             }
+
+            /*while (!heap.isEmpty()) {
+               System.out.println(heap.remove().toString()); 
+            }*/
         }
 
         
