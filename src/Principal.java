@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.util.PriorityQueue;
 
 /**
@@ -7,16 +8,21 @@ import java.util.PriorityQueue;
  */
 public class Principal {
     public static void main(String[] args) {
+        //Creamos un objeto de tipo PriorityQueue
         PriorityQueue<Proceso> priorityqueue = new PriorityQueue<Proceso>(new ProcesoComparator());
+        String lectura;
 
-        Proceso proceso1 = new Proceso("proceso1", "Sharis", 1);
-        Proceso proceso2 = new Proceso("proceso2", "Leonel", 2);
-
-        priorityqueue.add(proceso2);
-        priorityqueue.add(proceso1);
-
-        while (!priorityqueue.isEmpty()) {
-            System.out.println(priorityqueue.poll().getPriority());
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(".txt"));
+            String line;
+            while ((line = reader.readLine())!= null) {
+                lectura.add(line);
+            }
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        
     }
 }
