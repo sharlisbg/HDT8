@@ -14,7 +14,7 @@ public class Principal {
         PriorityQueue<Proceso> priorityqueue = new PriorityQueue<Proceso>(new ProcesoComparator());
         ArrayList<String> lectura = new ArrayList<String>();
 
-
+        // leemos el documento procesos.txt
         try {
             BufferedReader reader = new BufferedReader(new FileReader("procesos.txt"));
             String line;
@@ -26,9 +26,27 @@ public class Principal {
             e.printStackTrace();
         }
 
+        // creamos los objetos Proceso para agregarlos al priorityqueue
+        // recorremos cada string en la lista de procesos
         for (String string : lectura) {
-            System.out.println(string);
+            // separamos los datos por coma
+            String[] datos = string.split(",");
+            // asignamos los valores que vamos a pasar como parametros al constructor de la clase proceso
+            String nombreproceso = datos[0];
+            String nombreusuario = datos[1];
+            int valornice = Integer.parseInt(datos[2]);
+            // System.out.println(valornice);
+            // creamos una instancia de la clase proceso 
+            Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
+            // agregamos la instancia de proceso al priority queue
+            priorityqueue.add(proceso);
         }
+
+        
+
+       
+
+        
 
         
     }
