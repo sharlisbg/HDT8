@@ -1,4 +1,6 @@
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
@@ -10,10 +12,11 @@ public class Principal {
     public static void main(String[] args) {
         //Creamos un objeto de tipo PriorityQueue
         PriorityQueue<Proceso> priorityqueue = new PriorityQueue<Proceso>(new ProcesoComparator());
-        String lectura;
+        ArrayList<String> lectura = new ArrayList<String>();
+
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(".txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("procesos.txt"));
             String line;
             while ((line = reader.readLine())!= null) {
                 lectura.add(line);
@@ -21,6 +24,10 @@ public class Principal {
             reader.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        for (String string : lectura) {
+            System.out.println(string);
         }
 
         
