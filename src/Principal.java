@@ -62,7 +62,7 @@ public class Principal {
             int prioridad = proceso.getPriority();
             heap.Insert(prioridad, proceso);
             //System.out.println(heap.remove().toString());
-            System.out.println(heap.count());
+            System.out.println(" el count es " +heap.count());
             
         }
 
