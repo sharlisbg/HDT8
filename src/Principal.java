@@ -79,14 +79,20 @@ public class Principal {
                 System.out.println(priorityqueue.poll().toString());
             }
         } else {
-            for (int i = 0; i < heap.count(); i++) {
+            /*for (int i = 0; i < heap.count(); i++) {
                 Proceso temp = heap.remove();
                 System.out.println(temp.toString());
-            }
+            }*/
 
             /*while (!heap.isEmpty()) {
                System.out.println(heap.remove().toString()); 
             }*/
+
+            System.out.println(heap.remove().toString());
+            System.out.println(heap.remove().toString());
+            System.out.println(heap.remove().toString());
+            System.out.println(heap.remove().toString());
+            
         }
 
         
