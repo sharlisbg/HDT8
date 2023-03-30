@@ -69,14 +69,4 @@ public class Proceso {
         return "Nombre proceso: " + nombre + " Nombre usuario: " + nombreusuario + " Valor nice: " + valornice + " Priority: " + priority;
     }
 
-    /*@Override
-    public int compareTo(Proceso o) {
-       if (this.priority == o.getPriority()) {
-        return 0;
-       } else if (this.priority> o.getPriority()){
-        return 1;
-       } else {
-        return -1;
-       }
-    }*/
 }
