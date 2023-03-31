@@ -1,7 +1,10 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
@@ -16,7 +19,7 @@ public class Principal {
         PriorityQueue<Proceso> priorityqueue = new PriorityQueue<Proceso>(new ProcesoComparator());
         ArrayList<String> lectura = new ArrayList<String>();
 
-        // creamos un objeto de tipo HeapUsingIterativeBinaryTree
+        // Creamos un objeto de tipo HeapUsingIterativeBinaryTree
         HeapUsingIterativeBinaryTree<Integer, Proceso> heap = new HeapUsingIterativeBinaryTree<Integer, Proceso>(new ComparadorPrioridades<Integer>());
 
         // leemos el documento procesos.txt
@@ -40,7 +43,6 @@ public class Principal {
             String nombreproceso = datos[0];
             String nombreusuario = datos[1];
             int valornice = Integer.parseInt(datos[2]);
-            //System.out.println(valornice);
             // creamos una instancia de la clase proceso 
             Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
             // agregamos la instancia de proceso al priority queue
@@ -56,46 +58,45 @@ public class Principal {
             String nombreproceso = datos[0];
             String nombreusuario = datos[1];
             int valornice = Integer.parseInt(datos[2]);
-            //System.out.println(nombreproceso + nombreusuario+valornice);
-            //System.out.println(valornice);
             Proceso proceso = new Proceso(nombreproceso, nombreusuario, valornice);
             int prioridad = proceso.getPriority();
             heap.Insert(prioridad, proceso);
-            //System.out.println(heap.remove().toString());
-            System.out.println(" el count es " +heap.count());
-            
+
         }
 
         Scanner numero = new Scanner(System.in);
 
-        System.out.println("Ingrese la opcion que desea implementar");
-        System.out.println("1. Priority Queue");
+        System.out.println("Ingrese la opcion que desea implementar para ver los procesos del CPU");
+        System.out.println("1. Priority Queue del Java Collection");
         System.out.println("2. Heap using Iterative Binary Tree");
         int opcionimplementar = numero.nextInt();
+        numero.nextLine();    
 
-        if (opcionimplementar == 1) {
-            System.out.println("El CPU atendera los procesos en el siguiente orden:");
-            while (!priorityqueue.isEmpty()) {
-                System.out.println(priorityqueue.poll().toString());
+        while(opcionimplementar < 3){
+            switch (opcionimplementar){
+                case 1:{
+                    System.out.println("El CPU atendera los procesos en el siguiente orden:");
+                    while (!priorityqueue.isEmpty()) {
+                        System.out.println(priorityqueue.poll().toString());
+                    }
+                    break;
+                } 
+                
+                case 2:{
+                    List<Proceso> procesos = heap.getElements();
+                    
+                    // Imprimir los elementos removidos del heap
+                    for (Proceso proceso : procesos) {
+                        System.out.println(proceso.toString());
+                    }
+                    break;
+                }
             }
-        } else {
-            /*for (int i = 0; i < heap.count(); i++) {
-                Proceso temp = heap.remove();
-                System.out.println(temp.toString());
-            }*/
-
-            /*while (!heap.isEmpty()) {
-               System.out.println(heap.remove().toString()); 
-            }*/
-
-            System.out.println(heap.remove().toString());
-            System.out.println(heap.remove().toString());
-            System.out.println(heap.remove().toString());
-            System.out.println(heap.remove().toString());
-            
+            System.out.println("Ingrese la opcion que desea implementar para ver los procesos del CPU");
+            System.out.println("1. Priority Queue del Java Collection");
+            System.out.println("2. Heap using Iterative Binary Tree");
+            opcionimplementar = numero.nextInt();
+            numero.nextLine();        
         }
-
-
-        
     }
 }
