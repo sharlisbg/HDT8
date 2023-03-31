@@ -88,10 +88,10 @@ public class Principal {
                     for (Proceso proceso : procesos) {
                         System.out.println(proceso.toString());
                     }
-                    while (!heap.isEmpty()) {
+                   /* while (!heap.isEmpty()) {
                         System.out.println(heap.remove().toString()); 
                     }
-                    break;
+                    break;*/
                 }
             }
             System.out.println("Ingrese la opcion que desea implementar para ver los procesos que seran atendidos por el CPU");
