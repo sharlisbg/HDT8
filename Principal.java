@@ -66,7 +66,7 @@ public class Principal {
 
         Scanner numero = new Scanner(System.in);
 
-        System.out.println("Ingrese la opcion que desea implementar para ver los procesos del CPU");
+        System.out.println("Ingrese la opcion que desea implementar para ver los procesos que seran atendidos por el CPU");
         System.out.println("1. Priority Queue del Java Collection");
         System.out.println("2. Heap using Iterative Binary Tree");
         int opcionimplementar = numero.nextInt();
@@ -84,15 +84,17 @@ public class Principal {
                 
                 case 2:{
                     List<Proceso> procesos = heap.getElements();
-                    
                     // Imprimir los elementos removidos del heap
                     for (Proceso proceso : procesos) {
                         System.out.println(proceso.toString());
                     }
+                    while (!heap.isEmpty()) {
+                        System.out.println(heap.remove().toString()); 
+                    }
                     break;
                 }
             }
-            System.out.println("Ingrese la opcion que desea implementar para ver los procesos del CPU");
+            System.out.println("Ingrese la opcion que desea implementar para ver los procesos que seran atendidos por el CPU");
             System.out.println("1. Priority Queue del Java Collection");
             System.out.println("2. Heap using Iterative Binary Tree");
             opcionimplementar = numero.nextInt();

@@ -17,7 +17,4 @@ public class ProcesoComparator implements Comparator<Proceso> {
             return -1;
         }
     }
-
-
-    
 }

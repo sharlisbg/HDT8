@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * 
@@ -291,6 +294,27 @@ public class HeapUsingIterativeBinaryTree<P, V> implements IHeap<P, V> {
 	@Override
 	public boolean isEmpty() {
 		return _count == 0;
+	}
+
+	
+	@Override
+	public List<V> getElements() {
+		List<V> elements = new ArrayList<>();
+		Queue<TreeNode<P, V>> queue = new LinkedList<>();
+		if (_root != null) {
+			queue.add(_root);
+		}
+		while (!queue.isEmpty()) {
+			TreeNode<P, V> node = queue.poll();
+			elements.add(node.get_value());
+			if (node.get_left() != null) {
+				queue.add(node.get_left());
+			}
+			if (node.get_right() != null) {
+				queue.add(node.get_right());
+			}
+		}
+		return elements;
 	}
 
 }

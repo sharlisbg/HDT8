@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * 
  */
@@ -17,5 +19,7 @@ public interface IHeap<P, V> {
 	int count();
 	
 	boolean isEmpty();
+
+	List<V> getElements(); 
 	
 }
